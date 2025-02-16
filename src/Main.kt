@@ -5,7 +5,7 @@ fun main() {
 //    book1.title = "Life and Challenges"
 //    book1.yearPublished = 2019
 
-    var book1 = Book("Life and Challenges", "Hussain", 2019, "1st Generation")
+    var book1 = Book("Life and Challenges", "Hussain", 2019)
     book1.getBookInfo()
 }
 
@@ -17,8 +17,14 @@ fun main() {
 
 
 
-class Book constructor(var title: String, var author: String, var yearPublished: Int, var genre: String) {
+class Book constructor(var title: String, var author: String, var yearPublished: Int) {
+    var genre: String ?= null
+
     fun getBookInfo() {
-        println("$title, By: $author ($yearPublished) ($genre)")
+        if (genre == null) {
+            println("$title, By: $author ($yearPublished)")
+        } else {
+            println("$title, By: $author, ($yearPublished) ($genre)")
+        }
     }
 }
